@@ -30,15 +30,6 @@ Product.belongsTo(Category, {
   onDelete: "CASCADE",
 });
 
-// Order.belongsToMany(Product, {
-//   through: "OrderProduct",
-//   foreignKey: "orderId",
-// });
-// Product.belongsToMany(Order, {
-//   through: "OrderProduct",
-//   foreignKey: "productId",
-// });
-
 await sequelize.sync();
 
 export { User, Product, Category, Order };
