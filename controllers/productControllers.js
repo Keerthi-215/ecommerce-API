@@ -11,13 +11,18 @@ export const getProducts = async (req, res) => {
 
 export const createProduct = async (req, res) => {
   try {
-    const { name, price, description } = req.body;
-    if (!name || !price || !description)
+    const { name, price, description, categoryId } = req.body;
+    if (!name || !price || !description || !categoryId)
       return res
         .status(400)
         .json({ error: "name, price, and description are required" });
 
-    const product = await Product.create({ name, price, description });
+    const product = await Product.create({
+      name,
+      price,
+      description,
+      categoryId,
+    });
     res.status(201).json(product);
   } catch (error) {
     res.status(500).json({ error: error.message });
