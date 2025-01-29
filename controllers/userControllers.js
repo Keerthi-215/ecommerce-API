@@ -1,5 +1,5 @@
-import { User } from "../models/index.js"; // Пользуемся экспортом из index.js
-import bcrypt from "bcryptjs"; // Исправлено
+import { User } from "../models/index.js";
+import bcrypt from "bcryptjs";
 
 const isValidEmail = (email) =>
   /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email);
