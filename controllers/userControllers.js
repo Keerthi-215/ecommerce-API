@@ -55,10 +55,10 @@ export const getUserById = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   try {
-    const { firstName, lastName, email, password } = req.body;
+    const { name, email, password } = req.body;
     const { id } = req.params;
 
-    if (!firstName || !lastName || !email)
+    if (!name || !email || !password)
       return res
         .status(400)
         .json({ error: "First name, last name, and email are required" });
@@ -89,7 +89,7 @@ export const deleteUser = async (req, res) => {
     const user = await User.findByPk(id);
     if (!user) return res.status(404).json({ error: "User not found" });
 
-    await user.update({ isDeleted: true });
+    await user.destroy({ isDeleted: true });
     res.json({ message: "User soft deleted" });
   } catch (error) {
     res
