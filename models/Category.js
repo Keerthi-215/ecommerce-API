@@ -1,15 +1,15 @@
+// Category
+// id: Integer
+// name: String
+
 import { sequelize } from "../db/index.js";
 import { DataTypes } from "sequelize";
 
-const Post = sequelize.define("Post", {
-  title: {
+const Category = sequelize.define("Category", {
+  name: {
     type: DataTypes.STRING,
-    allowNull: false,
-  },
-  content: {
-    type: DataTypes.TEXT,
     allowNull: false,
   },
 });
 
-export default Post;
+export default Category;

@@ -1,8 +1,10 @@
 import { sequelize } from "../db/index.js";
 import User from "./User.js";
-import Post from "./Post.js";
+import Product from "./Product.js";
+import Category from "./Category.js";
+import Order from "./Order.js";
 
-User.hasMany(Post, {
+User.hasMany(Order, {
   foreignKey: {
     allowNull: false,
     name: "userId",
@@ -10,11 +12,33 @@ User.hasMany(Post, {
   onDelete: "CASCADE",
 });
 
-Post.belongsTo(User, {
+Order.belongsTo(User, {
   foreignKey: { allowNull: false, name: "userId" },
   onDelete: "CASCADE",
 });
 
+Category.hasMany(Product, {
+  foreignKey: {
+    allowNull: false,
+    name: "categoryId",
+  },
+  onDelete: "CASCADE",
+});
+
+Product.belongsTo(Category, {
+  foreignKey: { allowNull: false, name: "categoryId" },
+  onDelete: "CASCADE",
+});
+
+// Order.belongsToMany(Product, {
+//   through: "OrderProduct",
+//   foreignKey: "orderId",
+// });
+// Product.belongsToMany(Order, {
+//   through: "OrderProduct",
+//   foreignKey: "productId",
+// });
+
 await sequelize.sync();
 
-export { User, Post };
+export { User, Product, Category, Order };
