@@ -1,20 +1,9 @@
 import { sequelize } from "../db/index.js";
 import User from "./User.js";
-import Post from "./Post.js";
+import Product from "./Product.js";
 
-User.hasMany(Post, {
-  foreignKey: {
-    allowNull: false,
-    name: "userId",
-  },
-  onDelete: "CASCADE",
-});
-
-Post.belongsTo(User, {
-  foreignKey: { allowNull: false, name: "userId" },
-  onDelete: "CASCADE",
-});
-
+await sequelize.authenticate();
+console.log("Connection has been established successfully.");
 await sequelize.sync();
 
-export { User, Post };
+export { User, Product };

@@ -1,24 +1,19 @@
 import { sequelize } from "../db/index.js";
 import { DataTypes } from "sequelize";
 
-const User = sequelize.define("User", {
+const Product = sequelize.define("Product", {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  email: {
-    type: DataTypes.STRING,
+  price: {
+    type: DataTypes.FLOAT,
     allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true,
-    },
   },
-
-  password: {
+  description: {
     type: DataTypes.STRING,
     allowNull: false,
   },
 });
 
-export default User;
+export default Product;

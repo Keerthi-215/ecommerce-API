@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import userRouter from "./routers/userRouter.js";
-import postRouter from "./routers/postRouter.js";
+import productRouter from "./routers/productRouter.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,7 +12,7 @@ app.use(cors());
 
 // Routes
 app.use("/users", userRouter);
-app.use("/posts", postRouter);
+app.use("/products", productRouter);
 
 // Home route
 app.get("/", (req, res) => {
