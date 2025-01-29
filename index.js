@@ -3,6 +3,7 @@ import cors from "cors";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
 import productRouter from "./routers/productRouter.js";
+import categoryRouter from "./routers/categoryRouter.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ app.use(cors());
 app.use("/users", userRouter);
 app.use("/orders", orderRouter);
 app.use("/products", productRouter);
+app.use("/categories", categoryRouter);
 
 // Home route
 app.get("/", (req, res) => {
