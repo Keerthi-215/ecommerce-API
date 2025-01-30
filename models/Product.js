@@ -1,10 +1,3 @@
-// Product
-// id: Integer
-// name: String
-// description: String
-// price: Float
-// categoryId: Integer
-
 import { sequelize } from "../db/index.js";
 import { DataTypes } from "sequelize";
 

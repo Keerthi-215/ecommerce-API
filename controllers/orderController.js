@@ -1,5 +1,6 @@
 import { User, Order, Product } from "../models/index.js";
 
+// Get all orders
 export const getOrders = async (req, res) => {
   try {
     const orders = await Order.findAll();
@@ -9,6 +10,7 @@ export const getOrders = async (req, res) => {
   }
 };
 
+// Create an order
 export const createOrder = async (req, res) => {
   try {
     const user = await User.findByPk(req.body.userId);
@@ -40,6 +42,7 @@ export const createOrder = async (req, res) => {
   }
 };
 
+// Get order by ID
 export const getOrderById = async (req, res) => {
   try {
     const {
@@ -53,11 +56,11 @@ export const getOrderById = async (req, res) => {
   }
 };
 
+// Update an order
 export const updateOrder = async (req, res) => {
   try {
     const orderId = req.params.id;
-    const userId = req.body.userId;
-    const products = req.body.products;
+    const { userId, products } = req.body;
 
     // Fetch the existing order
     const order = await Order.findByPk(orderId);
@@ -98,6 +101,7 @@ export const updateOrder = async (req, res) => {
   }
 };
 
+// Delete an order
 export const deleteOrder = async (req, res) => {
   try {
     const {
