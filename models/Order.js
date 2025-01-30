@@ -1,9 +1,3 @@
-// Order
-// id: Integer
-// userId: Integer
-// products: Array of objects containing productId (Integer) and quantity (Integer)
-// total: Float
-
 import { sequelize } from "../db/index.js";
 import { DataTypes } from "sequelize";
 

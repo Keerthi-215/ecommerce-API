@@ -2,7 +2,15 @@ import Product from "../models/Product.js";
 
 export const getProducts = async (req, res) => {
   try {
-    const products = await Product.findAll();
+    const { categoryId } = req.query; // Extract categoryId from query parameters
+
+    let whereCondition = {}; // Default condition (empty for all products)
+    if (categoryId) {
+      whereCondition.categoryId = categoryId; // Filter by category if provided
+    }
+
+    const products = await Product.findAll({ where: whereCondition });
+
     res.json(products);
   } catch (error) {
     res.status(500).json({ error: error.message });

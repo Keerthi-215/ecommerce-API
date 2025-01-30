@@ -1,7 +1,3 @@
-// Category
-// id: Integer
-// name: String
-
 import { sequelize } from "../db/index.js";
 import { DataTypes } from "sequelize";
 
