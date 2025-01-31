@@ -10,7 +10,7 @@ import validateSchema from "../middlewares/validateSchema.js";
 import {
   createOrderSchema,
   updateOrderSchema,
-} from "../schemas/orderSchema.js";
+} from "../schemas/orderSchemas.js";
 
 const orderRouter = Router();
 
