@@ -1,5 +1,6 @@
 import express from "express";
-import cors from "cors";
+import { jsonMiddleware } from "./middlewares/jsonMiddleware.js";
+import { corsMiddleware } from "./middlewares/corsMiddleware.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
 import productRouter from "./routers/productRouter.js";
@@ -9,8 +10,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
-app.use(express.json());
-app.use(cors());
+app.use(jsonMiddleware);
+app.use(corsMiddleware);
 
 // Routes
 app.use("/users", userRouter);
